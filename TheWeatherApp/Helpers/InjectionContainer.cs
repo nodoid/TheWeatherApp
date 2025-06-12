@@ -12,8 +12,6 @@ public static class InjectionContainer
     {
         var i = new ServiceCollection()
             .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
-            .AddSingleton<IListAssets, ListResAssets>()
-            .AddSingleton<IFormFilename, CreatePlatformUrl>()
             .AddSingleton<IRepository, SqLiteRepository>();
             
         services = i;
