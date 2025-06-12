@@ -1,6 +1,6 @@
 ﻿using TheWeatherApp.Helpers;
 
-namespace ReadWritePDF;
+namespace TheWeatherApp;
 
 public static class Startup
 {
