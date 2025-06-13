@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Input;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 using TheWeatherApp.Models;
@@ -24,6 +24,15 @@ namespace TheWeatherApp.ViewModels
         [ObservableProperty]
         LocationModel? locations;
 
+        [ObservableProperty]
+        bool isRefreshing;
+
+        [RelayCommand]
+        public async Task RefreshData()
+        {
+            await Init();
+        }
+        
         public async Task Init()
         {
             var currentLoc = await GetCurrentLocation();
