@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Media;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 using TheWeatherApp.Models;
@@ -43,6 +45,18 @@ namespace TheWeatherApp.ViewModels
 
         [ObservableProperty]
         bool hasAlerts;
+
+        [ObservableProperty]
+        bool isRefreshing;
+
+        [RelayCommand]
+        async Task RefreshData()
+        {
+            IsRefreshing = true;
+            await Init();
+            IsRefreshing = false;
+        }
+
 
         public async Task Init()
         {
