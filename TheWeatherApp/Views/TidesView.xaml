@@ -77,13 +77,31 @@
                                                     </VerticalStackLayout>
                                                 </Grid>
                                             </HorizontalStackLayout>
+                                            <CollectionView ItemsSource="{Binding Day.Tides}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <ContentView Padding="0,8">
+                                                            <Grid ColumnDefinitions="30*,auto" RowDefinitions="auto,auto,auto" ColumnSpacing="8" RowSpacing="8">
+                                                                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Tide_Time}" 
+                                                                       Grid.Row="0" Grid.Column="0" />
+                                                                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Tide_Height}" 
+                                                                       Grid.Row="1" Grid.Column="0" />
+                                                                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Tide_Type}" 
+                                                                       Grid.Row="2" Grid.Column="0" />
+                                                                <Label Text="{Binding TideTime}" Grid.Row="0" Grid.Column="1" />
+                                                                <Label Text="{Binding TideHeightMt}" Grid.Row="1" Grid.Column="1" />
+                                                                <Label Text="{Binding TideType}" Grid.Row="2" Grid.Column="1" />
+                                                            </Grid>
+                                                        </ContentView>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
                                         </VerticalStackLayout>
                                     </Border>
                                 </ContentView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                    
                 </Grid>
             </HorizontalStackLayout>
         </VerticalStackLayout>
