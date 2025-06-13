@@ -59,5 +59,338 @@ namespace TheWeatherApp.Languages {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CO ug/m3.
+        /// </summary>
+        internal static string Air_CO {
+            get {
+                return ResourceManager.GetString("Air_CO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DEFRA index.
+        /// </summary>
+        internal static string Air_Defra {
+            get {
+                return ResourceManager.GetString("Air_Defra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NO2 ug/m3.
+        /// </summary>
+        internal static string Air_NO2 {
+            get {
+                return ResourceManager.GetString("Air_NO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oxone ug/m3.
+        /// </summary>
+        internal static string Air_Oxone {
+            get {
+                return ResourceManager.GetString("Air_Oxone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SO2 ug/m3.
+        /// </summary>
+        internal static string Air_SO2 {
+            get {
+                return ResourceManager.GetString("Air_SO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Areas.
+        /// </summary>
+        internal static string Alert_Areas {
+            get {
+                return ResourceManager.GetString("Alert_Areas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        internal static string Alert_Category {
+            get {
+                return ResourceManager.GetString("Alert_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certainty.
+        /// </summary>
+        internal static string Alert_Certain {
+            get {
+                return ResourceManager.GetString("Alert_Certain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Alert_Desc {
+            get {
+                return ResourceManager.GetString("Alert_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effective.
+        /// </summary>
+        internal static string Alert_Effective {
+            get {
+                return ResourceManager.GetString("Alert_Effective", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event.
+        /// </summary>
+        internal static string Alert_Event {
+            get {
+                return ResourceManager.GetString("Alert_Event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expires.
+        /// </summary>
+        internal static string Alert_Expires {
+            get {
+                return ResourceManager.GetString("Alert_Expires", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instruction.
+        /// </summary>
+        internal static string Alert_Instruct {
+            get {
+                return ResourceManager.GetString("Alert_Instruct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Severity.
+        /// </summary>
+        internal static string Alert_Severity {
+            get {
+                return ResourceManager.GetString("Alert_Severity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Urgency.
+        /// </summary>
+        internal static string Alert_Urgency {
+            get {
+                return ResourceManager.GetString("Alert_Urgency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weather Error.
+        /// </summary>
+        internal static string Eror_NoWeather_Title {
+            get {
+                return ResourceManager.GetString("Eror_NoWeather_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your network connection has dropped. Please check your connection.
+        /// </summary>
+        internal static string Error_ConnectMessage {
+            get {
+                return ResourceManager.GetString("Error_ConnectMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection Error.
+        /// </summary>
+        internal static string Error_ConnectTitle {
+            get {
+                return ResourceManager.GetString("Error_ConnectTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to get your current location. Please check location services are enabled.
+        /// </summary>
+        internal static string Error_LocationNull {
+            get {
+                return ResourceManager.GetString("Error_LocationNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location Error.
+        /// </summary>
+        internal static string Error_LocationTitle {
+            get {
+                return ResourceManager.GetString("Error_LocationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No weather has been returned for your current location.
+        /// </summary>
+        internal static string Error_NoWeather_Message {
+            get {
+                return ResourceManager.GetString("Error_NoWeather_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No tide data is available for your location.
+        /// </summary>
+        internal static string Error_Tides_NoData {
+            get {
+                return ResourceManager.GetString("Error_Tides_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tides Error.
+        /// </summary>
+        internal static string Error_Tides_Title {
+            get {
+                return ResourceManager.GetString("Error_Tides_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lat =.
+        /// </summary>
+        internal static string Pos_Lat {
+            get {
+                return ResourceManager.GetString("Pos_Lat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lng =.
+        /// </summary>
+        internal static string Pos_Lng {
+            get {
+                return ResourceManager.GetString("Pos_Lng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Temp.
+        /// </summary>
+        internal static string Temp_Max {
+            get {
+                return ResourceManager.GetString("Temp_Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min Temp.
+        /// </summary>
+        internal static string Temp_Min {
+            get {
+                return ResourceManager.GetString("Temp_Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More Information.
+        /// </summary>
+        internal static string Weather_Additional {
+            get {
+                return ResourceManager.GetString("Weather_Additional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alerts.
+        /// </summary>
+        internal static string Weather_Alerts {
+            get {
+                return ResourceManager.GetString("Weather_Alerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ave Humidity.
+        /// </summary>
+        internal static string Weather_AveHumid {
+            get {
+                return ResourceManager.GetString("Weather_AveHumid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chance of snow.
+        /// </summary>
+        internal static string Weather_ChanceSnow {
+            get {
+                return ResourceManager.GetString("Weather_ChanceSnow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Wind mph.
+        /// </summary>
+        internal static string Weather_MaxWind {
+            get {
+                return ResourceManager.GetString("Weather_MaxWind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Air Quality.
+        /// </summary>
+        internal static string Weather_Quality {
+            get {
+                return ResourceManager.GetString("Weather_Quality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chance of rain.
+        /// </summary>
+        internal static string Weather_RainChance {
+            get {
+                return ResourceManager.GetString("Weather_RainChance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Rain.
+        /// </summary>
+        internal static string Weather_TotalRain {
+            get {
+                return ResourceManager.GetString("Weather_TotalRain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Snow (cm).
+        /// </summary>
+        internal static string Weather_TotalSnow {
+            get {
+                return ResourceManager.GetString("Weather_TotalSnow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UV index.
+        /// </summary>
+        internal static string Weather_UV {
+            get {
+                return ResourceManager.GetString("Weather_UV", resourceCulture);
+            }
+        }
     }
 }
