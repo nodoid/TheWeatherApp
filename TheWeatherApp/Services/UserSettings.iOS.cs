@@ -4,7 +4,7 @@ using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 using Newtonsoft.Json;
 
-namespace FTrack4.PlatformServices
+namespace TheWeatherApp.PlatformServices
 {
     public class UserSettings : IUserSettings
     {

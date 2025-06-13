@@ -3,7 +3,7 @@ using Android.Content;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
-namespace FTrack4.PlatformServices
+namespace TheWeatherApp.PlatformServices
 {
 	public class UserSettings : Java.Lang.Object, IUserSettings
 	{
