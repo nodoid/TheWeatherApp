@@ -1,4 +1,4 @@
-﻿namespace TheWeatherApp.Tests.Tests.Interfaces
+﻿namespace TheWeatherApp.Tests.Interfaces
 {
     public interface IConnection
     {
