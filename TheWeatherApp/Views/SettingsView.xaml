@@ -4,6 +4,7 @@
              x:Class="TheWeatherApp.Views.SettingsView"
              xmlns:Converters="clr-namespace:TheWeatherApp.Converters" 
              xmlns:vm="clr-namespace:TheWeatherApp.ViewModels;assembly=TheWeatherApp"
+             IconImageSource="settings.png"
              Title="Settings">
     <ContentPage.BindingContext>
         <vm:SettingsViewModel x:Name="ViewModel" />
