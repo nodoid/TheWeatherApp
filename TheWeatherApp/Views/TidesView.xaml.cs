@@ -6,4 +6,10 @@ public partial class TidesView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		Task.Run(ViewModel.Init);
+	}
 }
