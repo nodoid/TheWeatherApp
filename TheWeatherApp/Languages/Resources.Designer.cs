@@ -286,6 +286,42 @@ namespace TheWeatherApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get Air Quality.
+        /// </summary>
+        internal static string Settings_Air {
+            get {
+                return ResourceManager.GetString("Settings_Air", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Alerts.
+        /// </summary>
+        internal static string Settings_Alerts {
+            get {
+                return ResourceManager.GetString("Settings_Alerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of days.
+        /// </summary>
+        internal static string Settings_NumDays {
+            get {
+                return ResourceManager.GetString("Settings_NumDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings_Title {
+            get {
+                return ResourceManager.GetString("Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Temp.
         /// </summary>
         internal static string Temp_Max {
