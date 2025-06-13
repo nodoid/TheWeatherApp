@@ -28,6 +28,9 @@
                 <Switch IsToggled="{Binding Air}" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"/>
                 <Switch IsToggled="{Binding Alerts}" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"/>
             </Grid>
+            <Button VerticalOptions="End" HorizontalOptions="Center"
+                    Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Save}"
+                    Command="{Binding SaveSettingsCommand}" />
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
