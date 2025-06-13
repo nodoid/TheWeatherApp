@@ -243,5 +243,14 @@
   <data name="Settings_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Tide_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Tide_Height" xml:space="preserve">
+    <value>Height (m)</value>
+  </data>
+  <data name="Tide_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
 
 </root>

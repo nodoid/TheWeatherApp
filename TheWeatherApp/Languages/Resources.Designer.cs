@@ -296,5 +296,23 @@ namespace TheWeatherApp.Languages {
                 return ResourceManager.GetString("Settings_Save", resourceCulture);
             }
         }
+        
+        internal static string Tide_Time {
+            get {
+                return ResourceManager.GetString("Tide_Time", resourceCulture);
+            }
+        }
+        
+        internal static string Tide_Height {
+            get {
+                return ResourceManager.GetString("Tide_Height", resourceCulture);
+            }
+        }
+        
+        internal static string Tide_Type {
+            get {
+                return ResourceManager.GetString("Tide_Type", resourceCulture);
+            }
+        }
     }
 }
