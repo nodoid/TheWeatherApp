@@ -17,7 +17,7 @@ namespace TheWeatherApp.Tests.Database
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            connectionFactory = Substitute.For<ISqLiteConnectionFactory>();
+            connectionFactory = Substitute.For<IRepository>();
             connection = new SQLiteConnection(testDatabase);
             connectionFactory.GetConnection();
         }
