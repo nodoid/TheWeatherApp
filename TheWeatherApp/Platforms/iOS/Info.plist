@@ -16,6 +16,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
@@ -28,5 +29,11 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TheWeatherApp requires permission (when in use) to use your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>TheWeatherApp requires permission (when in use) to use your location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>TheWeatherApp requires permission (when in use) to use your location</string>
 </dict>
 </plist>
