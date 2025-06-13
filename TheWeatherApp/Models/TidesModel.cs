@@ -12,13 +12,6 @@ namespace TheWeatherApp.Models
         public Forecast Forecast { get; set; }
     }
 
-
-    public class Tides
-    {
-        [JsonProperty("tide")]
-        public ObservableCollection<Tide2>? Tide { get; set; }
-    }
-
     public class Tide2
     {
         [JsonProperty("tide_time")]
