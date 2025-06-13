@@ -14,6 +14,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <VerticalStackLayout VerticalOptions="Center" Padding="8" HorizontalOptions="Center">
+        
         <Label 
             Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Title}"  FontSize="Large"
             VerticalOptions="Center" 
