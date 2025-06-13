@@ -5,12 +5,12 @@ namespace TheWeatherApp.Models
     public class Condition
     {
         [JsonProperty("text")]
-        public string? Text;
+        public string? Text  { get; set; }
 
         [JsonProperty("icon")]
-        public string? Icon;
+        public string? Icon  { get; set; }
 
         [JsonProperty("code")]
-        public int? Code;
+        public int? Code  { get; set; }
     }
 }

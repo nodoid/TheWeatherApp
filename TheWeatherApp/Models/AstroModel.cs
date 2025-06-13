@@ -5,33 +5,33 @@ namespace TheWeatherApp.Models
     public class Astro
     {
         [JsonProperty("sunrise")]
-        public string? Sunrise;
+        public string? Sunrise  { get; set; }
 
         [JsonProperty("sunset")]
-        public string? Sunset;
+        public string? Sunset  { get; set; }
 
         [JsonProperty("moonrise")]
-        public string? Moonrise;
+        public string? Moonrise  { get; set; }
 
         [JsonProperty("moonset")]
-        public string? Moonset;
+        public string? Moonset  { get; set; }
 
         [JsonProperty("moon_phase")]
-        public string? MoonPhase;
+        public string? MoonPhase  { get; set; }
 
         [JsonProperty("moon_illumination")]
-        public int? MoonIllumination;
+        public int? MoonIllumination  { get; set; }
 
         [JsonProperty("is_moon_up")]
-        public int? IsMoonUp;
+        public int? IsMoonUp  { get; set; }
 
         [JsonProperty("is_sun_up")]
-        public int? IsSunUp;
+        public int? IsSunUp  { get; set; }
     }
 
     public class Astronomy
     {
         [JsonProperty("astro")]
-        public Astro Astro;
+        public Astro Astro  { get; set; }
     }
 }

@@ -6,73 +6,73 @@ namespace TheWeatherApp.Models
     public class Day
     {
         [JsonProperty("maxtemp_c")]
-        public double? MaxtempC;
+        public double? MaxtempC  { get; set; }
 
         [JsonProperty("maxtemp_f")]
-        public double? MaxtempF;
+        public double? MaxtempF { get; set; }
 
         [JsonProperty("mintemp_c")]
-        public double? MintempC;
+        public double? MintempC { get; set; }
 
         [JsonProperty("mintemp_f")]
-        public double? MintempF;
+        public double? MintempF { get; set; }
 
         [JsonProperty("avgtemp_c")]
-        public double? AvgtempC;
+        public double? AvgtempC { get; set; }
 
         [JsonProperty("avgtemp_f")]
-        public double? AvgtempF;
+        public double? AvgtempF { get; set; }
 
         [JsonProperty("maxwind_mph")]
-        public double? MaxwindMph;
+        public double? MaxwindMph { get; set; }
 
         [JsonProperty("maxwind_kph")]
-        public double? MaxwindKph;
+        public double? MaxwindKph { get; set; }
 
         [JsonProperty("totalprecip_mm")]
-        public double? TotalprecipMm;
+        public double? TotalprecipMm { get; set; }
 
         [JsonProperty("totalprecip_in")]
-        public double? TotalprecipIn;
+        public double? TotalprecipIn { get; set; }
 
         [JsonProperty("totalsnow_cm")]
-        public double? TotalsnowCm;
+        public double? TotalsnowCm { get; set; }
 
         [JsonProperty("avgvis_km")]
-        public double? AvgvisKm;
+        public double? AvgvisKm { get; set; }
 
         [JsonProperty("avgvis_miles")]
-        public double? AvgvisMiles;
+        public double? AvgvisMiles { get; set; }
 
         [JsonProperty("avghumidity")]
-        public int? Avghumidity;
+        public int? Avghumidity { get; set; }
 
         [JsonProperty("tides")]
-        public ObservableCollection<Tides>? Tides;
+        public ObservableCollection<Tides>? Tides { get; set; }
 
         public bool HasTides { get => Tides != null; }
 
         [JsonProperty("daily_will_it_rain")]
-        public int? DailyWillItRain;
+        public int? DailyWillItRain { get; set; }
 
         [JsonProperty("daily_chance_of_rain")]
-        public int? DailyChanceOfRain;
+        public int? DailyChanceOfRain { get; set; }
 
         [JsonProperty("daily_will_it_snow")]
-        public int? DailyWillItSnow;
+        public int? DailyWillItSnow { get; set; }
 
         [JsonProperty("daily_chance_of_snow")]
-        public int? DailyChanceOfSnow;
+        public int? DailyChanceOfSnow { get; set; }
 
         [JsonProperty("condition")]
-        public Condition? Condition;
+        public Condition? Condition { get; set; }
 
         [JsonProperty("uv")]
-        public double? Uv;
+        public double? Uv { get; set; }
 
         public bool HasAirQuality { get => AirQuality != null; }
 
         [JsonProperty("air_quality")]
-        public AirQuality? AirQuality;
+        public AirQuality? AirQuality { get; set; }
     }
 }
