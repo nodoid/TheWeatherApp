@@ -1,6 +1,4 @@
 ﻿using System.Globalization;
-using SQLite;
-using TheWeatherApp.Database;
 using TheWeatherApp.Interfaces;
 using TheWeatherApp.ViewModels;
 
@@ -12,7 +10,6 @@ namespace TheWeatherApp
         public bool IsConnected { get; private set; }
         public static App Self { get; private set; }
         public static Size ScreenSize { get; private set; }
-        public static SQLiteAsyncConnection SQLConnection { get; set; }
         
         bool isStarted { get; set; } = false;
         public App()
@@ -30,8 +27,6 @@ namespace TheWeatherApp
             Service.GetService<BaseViewModel>().IsConnected = IsConnected = Connectivity.NetworkAccess == NetworkAccess.Internet;
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            
-            SetupSQLiteConnection();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
@@ -54,26 +49,6 @@ namespace TheWeatherApp
                 var netLanguage = Service.GetService<ILocalize>().GetCurrent();
                 Languages.Resources.Culture = new CultureInfo(netLanguage);
                 Service.GetService<ILocalize>().SetLocale();
-
-                new SqLiteRepository();
-            }
-        }
-
-        void SetupSQLiteConnection()
-        {
-            var path = Path.Combine(FileSystem.AppDataDirectory, "weather.db3");
-
-            var options = new SQLiteConnectionString(path, SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite, true, 
-                "42b5d84353894794804881b5b6f398c9");
-            try
-            {
-                App.SQLConnection = new SQLiteAsyncConnection(options);
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Console.WriteLine($"Connection could  not be made : ex.Message = {ex.Message} - inner = {ex.InnerException?.Message}");
-#endif
             }
         }
     }
