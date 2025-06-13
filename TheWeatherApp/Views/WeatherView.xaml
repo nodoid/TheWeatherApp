@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheWeatherApp.Views.WeatherView"
+             xmlns:Converters="clr-namespace:TheWeatherApp.Converters" 
+             xmlns:vm="clr-namespace:TheWeatherApp.ViewModels;assembly=TheWeatherApp"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Weather">
+    <ContentPage.BindingContext>
+        <vm:WeatherViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:WidthSizeConverter x:Key="Width" />
+            <Converters:HeightSizeConverter x:Key="Height" />
+            <Converters:LanguageConverter x:Key="Languages" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Start">
+        <Label Text="{Binding Location.Name}" FontSize="Large" HorizontalOptions="Center" />
+        <Label Text="{Binding Location.Country}" FontSize="Medium" HorizontalOptions="Center" />
+        <HorizontalStackLayout HorizontalOptions="Center" WidthRequest="{Binding Converter={StaticResource Width}, ConverterParameter=.6}">
+            <Grid ColumnDefinitions="50*,50*" ColumnSpacing="8">
+                <HorizontalStackLayout Grid.Column="0">
+                    <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lat}"
+                           FontSize="Small" />
+                    <Label Text="{Binding Location.Lat}" FontSize="Small" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Column="0">
+                    <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lng}"
+                        FontSize="Small" />
+                    <Label Text="{Binding Location.Lon}" FontSize="Small" />
+                </HorizontalStackLayout>
+            </Grid>
+        </HorizontalStackLayout>
+        <CollectionView ItemsSource="{Binding Forecast.Forecastday}" HorizontalScrollBarVisibility="Always">
+        <CollectionView.EmptyViewTemplate>
+            <DataTemplate>
+                <ContentView>
+                    <Border BackgroundColor="White">
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="The collection is empty" />
+                        </StackLayout>
+                    </Border>
+                </ContentView>
+            </DataTemplate>
+        </CollectionView.EmptyViewTemplate>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <ContentView Padding="8,0">
+                    <Border BackgroundColor="Wheat"
+                            WidthRequest="{Binding Converter={StaticResource Width},ConverterParameter=.2}" Padding="0,8"
+                            VerticalOptions="Start">
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <HorizontalStackLayout HorizontalOptions="Center">
+                                    <Grid ColumnDefinitions="65*,auto" RowDefinitions="auto,auto">
+                                        <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                                            <Label Text="{Binding Date}" FontSize="Large" TextColor="Blue" HorizontalOptions="Center" />
+                                            <Label Text="{Binding Day.Condition.Text}" FontSize="Medium"  HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                        
+                                        <Image Source="{Binding Day.Condition.Icon}" HeightRequest="64" WidthRequest="64" 
+                                               HorizontalOptions="Center"  Grid.Column="1" Grid.Row="0" />
+                                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="0" Grid.Row="1">
+                                            <HorizontalStackLayout Padding="4" HorizontalOptions="Center">
+                                                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Temp_Min}"
+                                                       FontSize="Small"  TextColor="LightBlue" />
+                                                <Label Text="{Binding Day.MaxtempC}" FontSize="Small"  TextColor="LightBlue" />
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout Padding="4" HorizontalOptions="Center">
+                                                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Temp_Max}"
+                                                    FontSize="Small"  TextColor="LightBlue" />
+                                                <Label Text="{Binding Day.MaxtempC}" FontSize="Small"  TextColor="LightBlue" />
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </HorizontalStackLayout>
+                                <toolkit:Expander>
+                                    <toolkit:Expander.Header>
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_Additional}"
+                                            HorizontalOptions="Center"  FontAttributes="Bold" FontSize="14" />
+                                    </toolkit:Expander.Header>
+                                    <VerticalStackLayout Padding="10">
+                                        <Grid ColumnDefinitions=".35*, auto" 
+                                              RowDefinitions="auto,auto,auto,auto,auto,auto,auto" 
+                                                ColumnSpacing="8" RowSpacing="8">
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_MaxWind}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="0" />
+                                            <Label Text="{Binding Day.MaxwindMph}"  FontSize="12" Grid.Column="1" Grid.Row="0" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_TotalRain}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="1" />
+                                            <Label Text="{Binding Day.TotalprecipMm}"  FontSize="12" Grid.Column="1" Grid.Row="1" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_TotalSnow}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="2" />
+                                            <Label Text="{Binding Day.TotalsnowCm}"  FontSize="12" Grid.Column="1" Grid.Row="2" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_AveHumid}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="3" />
+                                            <Label Text="{Binding Day.Avghumidity}"  FontSize="12" Grid.Column="1" Grid.Row="3" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_UV}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="4" />
+                                            <Label Text="{Binding Day.Uv}"  FontSize="12" Grid.Column="1" Grid.Row="4" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_RainChance}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="5" />
+                                            <Label Text="{Binding Day.DailyChanceOfRain}"  FontSize="12" Grid.Column="1" Grid.Row="5" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_ChanceSnow}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="6" />
+                                            <Label Text="{Binding Day.DailyChanceOfSnow}"  FontSize="12" Grid.Column="1" Grid.Row="6" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </toolkit:Expander>
+                                <toolkit:Expander IsEnabled="{Binding Day.HasAirQuality}">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_Quality}"
+                                               HorizontalOptions="Center"  FontAttributes="Bold" FontSize="14" />
+                                    </toolkit:Expander.Header>
+                                    <VerticalStackLayout Padding="10">
+                                        <Grid ColumnDefinitions=".35*, auto" RowDefinitions="auto,auto,auto,auto,auto" 
+                                              ColumnSpacing="8" RowSpacing="8">
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Air_CO}"
+                                                   FontSize="12" Grid.Column="0" Grid.Row="0" />
+                                            <Label Text="{Binding Day.AirQuality.Co}"  FontSize="12" Grid.Column="1" Grid.Row="0" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Air_NO2}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="1" />
+                                            <Label Text="{Binding Day.AirQuality.No2}"  FontSize="12" Grid.Column="1" Grid.Row="1" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Air_SO2}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="2" />
+                                            <Label Text="{Binding Day.AirQuality.So2}"  FontSize="12" Grid.Column="1" Grid.Row="2" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Air_Oxone}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="3" />
+                                            <Label Text="{Binding Day.AirQuality.O3}"  FontSize="12" Grid.Column="1" Grid.Row="3" />
+                                            <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Air_Defra}"
+                                                FontSize="12" Grid.Column="0" Grid.Row="4" />
+                                            <Label Text="{Binding Day.AirQuality.GbDefraIndex}"  FontSize="12" Grid.Column="1" Grid.Row="4" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </toolkit:Expander>
+                            </VerticalStackLayout>
+                    </Border>
+                </ContentView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+        <VerticalStackLayout IsVisible="{Binding HasAlerts}" Padding="0,8">
+            <CollectionView ItemsSource="{Binding Alerts.Alert}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="4" HorizontalOptions="Start">
+                            <toolkit:Expander>
+                                <toolkit:Expander.Header>
+                                    <Label Text="{Binding Headline}" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="14" />
+                                </toolkit:Expander.Header>
+                                <VerticalStackLayout Padding="4">
+                                    <Grid ColumnDefinitions=".35*, auto" RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto" 
+                                        ColumnSpacing="8" RowSpacing="8">
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Severity}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="0" />
+                                        <Label Text="{Binding Severity}"  FontSize="12" Grid.Column="1" Grid.Row="0" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Urgency}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="1" />
+                                        <Label Text="{Binding Day.TotalprecipMm}"  FontSize="12" Grid.Column="1" Grid.Row="1" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Areas}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="2" />
+                                        <Label Text="{Binding Areas}"  FontSize="12" Grid.Column="1" Grid.Row="2" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Category}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="3" />
+                                        <Label Text="{Binding Category}"  FontSize="12" Grid.Column="1" Grid.Row="3" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Certain}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="4" />
+                                        <Label Text="{Binding Certainty}"  FontSize="12" Grid.Column="1" Grid.Row="4" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Event}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="5" />
+                                        <Label Text="{Binding Event}"  FontSize="12" Grid.Column="1" Grid.Row="5" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Desc}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="6" />
+                                        <Label Text="{Binding Desc}"  FontSize="12" Grid.Column="1" Grid.Row="6" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Instruct}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="7" />
+                                        <Label Text="{Binding Instruction}"  FontSize="12" Grid.Column="1" Grid.Row="7" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Effective}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="8" />
+                                        <Label Text="{Binding Effective}"  FontSize="12" Grid.Column="1" Grid.Row="8" />
+                                        <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Alert_Expires}"
+                                            FontSize="12" Grid.Column="0" Grid.Row="9" />
+                                        <Label Text="{Binding Expires}"  FontSize="12" Grid.Column="1" Grid.Row="9" />
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </toolkit:Expander>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage> 

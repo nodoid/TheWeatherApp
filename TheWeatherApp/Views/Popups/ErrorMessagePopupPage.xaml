@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:Converters="clr-namespace:TheWeatherApp.Converters" 
+                  xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+                  BackgroundInputTransparent="True"
+                  HasSystemPadding="True"
+                  x:Class="TheWeatherApp.Views.Popups.ErrorMessagePopupPage"
+                  xmlns:vm="clr-namespace:TheWeatherApp.ViewModels;assembly=TheWeatherApp">
+    <Mopups:PopupPage.BindingContext>
+        <vm:ErrorsViewModel x:Name="ViewModel" />
+    </Mopups:PopupPage.BindingContext>
+    <Mopups:PopupPage.Resources>
+        <ResourceDictionary>
+            <Converters:WidthSizeConverter x:Key="Width" />
+            <Converters:HeightSizeConverter x:Key="Height" />
+            <Converters:LanguageConverter x:Key="Languages" />
+        </ResourceDictionary>
+    </Mopups:PopupPage.Resources>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="20">
+        <StackLayout Padding="8" BackgroundColor="Transparent"
+                     WidthRequest="{Binding Converter={StaticResource Width},ConverterParameter=.75}"
+                     HeightRequest="{Binding Converter={StaticResource Height},ConverterParameter=.25}">
+            <Border Padding="0" BackgroundColor="LightGray">
+            <StackLayout Padding="8" VerticalOptions="Center">
+                    <Grid ColumnDefinitions="20*,80*">
+                        <skia:SKLottieView
+                            x:Name="animationView"
+                                Source="close_animation.json"  Grid.Column="0"
+                                RepeatCount="-1"
+                                IsAnimationEnabled="True" WidthRequest="48" 
+                                 HeightRequest="48"             
+                                VerticalOptions="Fill" HorizontalOptions="Fill" />
+                        <Label Text="{Binding ErrorTitle}" Style="{StaticResource Normal}" 
+                               Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                
+                <Button Margin="0,12,0,0" 
+                        Text="{Binding Converter={StaticResource Languages},ConverterParameter=Gen_OK}"
+                        Command="{Binding ReturnToCallerCommand}" TextColor="White" BackgroundColor="Red"/>
+            </StackLayout>
+                </Border>
+            </StackLayout>
+        </StackLayout>
+</Mopups:PopupPage>
