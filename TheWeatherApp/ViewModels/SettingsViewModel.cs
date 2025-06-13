@@ -20,11 +20,11 @@ namespace TheWeatherApp.ViewModels
         [NotifyPropertyChangedFor(nameof(AirChanged))]
         bool air;
 
-        void DaysChanged() => userSettings.SaveSetting("days", value:NumDays, SettingType.Int);
+        public void DaysChanged() => userSettings.SaveSetting("days", value:NumDays, SettingType.Int);
 
-        void AlertsChanged() => userSettings.SaveSetting("alerts", Alerts, SettingType.Bool);
+        public void AlertsChanged() => userSettings.SaveSetting("alerts", Alerts, SettingType.Bool);
 
-        void AirChanged() => userSettings.SaveSetting("alerts", Air, SettingType.Bool);
+        public void AirChanged() => userSettings.SaveSetting("alerts", Air, SettingType.Bool);
 
         public void Init()
         {
