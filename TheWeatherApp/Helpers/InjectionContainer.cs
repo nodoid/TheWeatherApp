@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using TheWeatherApp.Database;
 using TheWeatherApp.Interfaces;
+using TheWeatherApp.PlatformServices;
 using TheWeatherApp.Services;
 
 namespace TheWeatherApp.Helpers;
@@ -11,7 +11,7 @@ public static class InjectionContainer
     {
         var i = new ServiceCollection()
             .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
-            .AddSingleton<IRepository, SqLiteRepository>()
+            .AddSingleton<IUserSettings, UserSettings>()
             .AddSingleton<IWebService,WebService>();
             
         services = i;
