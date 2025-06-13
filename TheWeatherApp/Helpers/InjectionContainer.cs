@@ -2,7 +2,6 @@
 using TheWeatherApp.Database;
 using TheWeatherApp.Interfaces;
 using TheWeatherApp.Services;
-using TheWeatherApp.ViewModels;
 
 namespace TheWeatherApp.Helpers;
 
@@ -12,7 +11,8 @@ public static class InjectionContainer
     {
         var i = new ServiceCollection()
             .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
-            .AddSingleton<IRepository, SqLiteRepository>();
+            .AddSingleton<IRepository, SqLiteRepository>()
+            .AddSingleton<IWebService,WebService>();
             
         services = i;
         return services;
