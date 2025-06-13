@@ -6,48 +6,48 @@ namespace TheWeatherApp.Models
     public class Alert
     {
         [JsonProperty("headline")]
-        public string? Headline;
+        public string? Headline  { get; set; }
 
         [JsonProperty("msgtype")]
-        public string? Msgtype;
+        public string? Msgtype  { get; set; }
 
         [JsonProperty("severity")]
-        public string? Severity;
+        public string? Severity  { get; set; }
 
         [JsonProperty("urgency")]
-        public string? Urgency;
+        public string? Urgency  { get; set; }
 
         [JsonProperty("areas")]
-        public string? Areas;
+        public string? Areas  { get; set; }
 
         [JsonProperty("category")]
-        public string? Category;
+        public string? Category  { get; set; }
 
         [JsonProperty("certainty")]
-        public string? Certainty;
+        public string? Certainty  { get; set; }
 
         [JsonProperty("event")]
-        public string? Event;
+        public string? Event  { get; set; }
 
         [JsonProperty("note")]
-        public string? Note;
+        public string? Note  { get; set; }
 
         [JsonProperty("effective")]
-        public string? Effective;
+        public string? Effective  { get; set; }
 
         [JsonProperty("expires")]
-        public DateTime? Expires;
+        public DateTime? Expires { get; set; }
 
         [JsonProperty("desc")]
-        public string? Desc;
+        public string? Desc  { get; set; }
 
         [JsonProperty("instruction")]
-        public string? Instruction;
+        public string? Instruction { get; set; }
     }
 
     public class Alerts
     {
         [JsonProperty("alert")]
-        public ObservableCollection<Alert> Alert;
+        public ObservableCollection<Alert> Alert  { get; set; }
     }
 }

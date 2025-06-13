@@ -16,21 +16,18 @@
             <Converters:LanguageConverter x:Key="Languages" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshDataCommand}">    
-        <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Start">
-            <ActivityIndicator Color="BlueViolet" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding IsRefreshing}"
-                   IsRunning="true" />
-            <Label Text="{Binding Location.Name}" FontSize="Large" HorizontalOptions="Center" />
-            <Label Text="{Binding Location.Country}" FontSize="Medium" HorizontalOptions="Center" />
-            <HorizontalStackLayout HorizontalOptions="Center" WidthRequest="{Binding Converter={StaticResource Width}, ConverterParameter=.6}">
-                <Grid ColumnDefinitions="50*,50*" ColumnSpacing="8">
-                    <HorizontalStackLayout Grid.Column="0">
-                        <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lat}"
+    <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Start">
+        <Label Text="{Binding LocationModel.Name}" FontSize="Large" HorizontalOptions="Center" />
+        <Label Text="{Binding LocationModel.Country}" FontSize="Medium" HorizontalOptions="Center" />
+        <HorizontalStackLayout HorizontalOptions="Center" WidthRequest="{Binding Converter={StaticResource Width}, ConverterParameter=.6}">
+            <Grid ColumnDefinitions="50*,50*" ColumnSpacing="8">
+                <HorizontalStackLayout Grid.Column="0">
+                    <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lat}"
                            FontSize="Small" />
-                        <Label Text="{Binding Location.Lat}" FontSize="Small" />
-                    </HorizontalStackLayout>
-                    <HorizontalStackLayout Grid.Column="0">
-                        <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lng}"
+                    <Label Text="{Binding LocationModel.Lat}" FontSize="Small" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Column="0">
+                    <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lng}"
                         FontSize="Small" />
                         <Label Text="{Binding Location.Lon}" FontSize="Small" />
                     </HorizontalStackLayout>

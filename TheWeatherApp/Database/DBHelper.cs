@@ -117,11 +117,7 @@ public class SqLiteRepository : IRepository
     {
         try
         {
-            await connection.CreateTableAsync<Route>();
-            await connection.CreateTableAsync<Time>();
-            await connection.CreateTableAsync<Times>();
-            await connection.CreateTableAsync<TimesMaster>();
-            await connection.CreateTableAsync<Timetable>();
+
         }
         catch (Exception ex)
         {
@@ -135,11 +131,7 @@ public class SqLiteRepository : IRepository
     {
         try
         {
-            await connection.DeleteAllAsync<Route>();
-            await connection.DeleteAllAsync<Time>();
-            await connection.DeleteAllAsync<Times>();
-            await connection.DeleteAllAsync<TimesMaster>();
-            await connection.DeleteAllAsync<Timetable>();
+
         }
         catch (Exception ex)
         {

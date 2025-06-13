@@ -5,15 +5,15 @@ namespace TheWeatherApp.Models
     public class WeatherForecast
     {
         [JsonProperty("location")]
-        public LocationModel? Location;
+        public LocationModel? Location { get; set; }
 
         [JsonProperty("current")]
-        public Current? Current;
+        public Current? Current { get; set; }
 
         [JsonProperty("forecast")]
-        public Forecast? Forecast;
+        public Forecast? Forecast { get; set; }
 
         [JsonProperty("alerts")]
-        public Alerts? Alerts;
+        public Alerts? Alerts { get; set; }
     }
 }

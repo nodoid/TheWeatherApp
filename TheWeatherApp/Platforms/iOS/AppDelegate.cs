@@ -9,8 +9,6 @@ namespace TheWeatherApp
         public static AppDelegate Self { get; private set; }
         public NSUserDefaults UserDefaults { get; private set; }
 
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             AppDelegate.Self = this;

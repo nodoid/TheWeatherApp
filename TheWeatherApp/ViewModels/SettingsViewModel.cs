@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
@@ -8,23 +9,19 @@ namespace TheWeatherApp.ViewModels
     {
         IUserSettings? userSettings => Startup.ServiceProvider.GetService<IUserSettings>();
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(DaysChanged))]
-        int numDays;
+        [ObservableProperty] int numDays;
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(AlertsChanged))]
-        bool alerts;
+        [ObservableProperty] bool alerts;
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(AirChanged))]
-        bool air;
+        [ObservableProperty] bool air;
 
-        void DaysChanged() => userSettings.SaveSetting("days", value:NumDays, SettingType.Int);
-
-        void AlertsChanged() => userSettings.SaveSetting("alerts", Alerts, SettingType.Bool);
-
-        void AirChanged() => userSettings.SaveSetting("alerts", Air, SettingType.Bool);
+        [RelayCommand]
+        public void SaveSettings()
+        {
+            userSettings.SaveSetting("days", value:NumDays, SettingType.Int);
+            userSettings.SaveSetting("alerts", Alerts, SettingType.Bool);
+            userSettings.SaveSetting("alerts", Air, SettingType.Bool);
+        }
 
         public void Init()
         {
