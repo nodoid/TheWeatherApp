@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheWeatherApp.Views.SettingsView"
+             xmlns:Converters="clr-namespace:TheWeatherApp.Converters" 
+             xmlns:vm="clr-namespace:TheWeatherApp.ViewModels;assembly=TheWeatherApp"
+             Title="Settings">
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:LanguageConverter x:Key="Languages" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout VerticalOptions="Center" Padding="8" HorizontalOptions="Center">
+        <Label 
+            Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Title}"  FontSize="Large"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <VerticalStackLayout Padding="0,16">
+            <Grid ColumnDefinitions="45*,auto" RowDefinitions="auto,auto,auto" RowSpacing="8" ColumnSpacing="8">
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="0" />
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="1" />
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="2" />
+                <Stepper Maximum="14" Minimum="1" Value="{Binding NumDays}" Grid.Column="1" Grid.Row="0" />
+                <Switch IsToggled="{Binding Air}" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"/>
+                <Switch IsToggled="{Binding Alerts}" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"/>
+            </Grid>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
