@@ -1,5 +1,6 @@
 ﻿#if ANDROID
 using Android.Content;
+using TheWeatherApp;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
