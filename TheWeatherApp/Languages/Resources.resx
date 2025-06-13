@@ -240,4 +240,8 @@
   <data name="Settings_Air" xml:space="preserve">
     <value>Get Air Quality</value>
   </data>
+  <data name="Settings_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+
 </root>
