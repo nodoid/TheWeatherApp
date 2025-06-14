@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using TheWeatherApp.Interfaces;
-using TheWeatherApp.PlatformServices;
 using TheWeatherApp.Services;
 
 namespace TheWeatherApp.Helpers;
