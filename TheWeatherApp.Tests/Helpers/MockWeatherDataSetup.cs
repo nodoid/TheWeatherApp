@@ -1,4 +1,5 @@
-﻿using TheWeatherApp.Models;
+﻿using Newtonsoft.Json;
+using TheWeatherApp.Models;
 
 namespace TheWeatherApp.Tests.Helpers
 {
@@ -50,7 +51,7 @@ namespace TheWeatherApp.Tests.Helpers
   ""name"": ""Mountain View"",
   ""cod"": 200
   }";
-            return JsonConvert.DeserializeObject<WeatherData>(data);
+            return JsonConvert.DeserializeObject<Day>(data);
         }
     }
 }
