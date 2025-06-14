@@ -1,4 +1,6 @@
-﻿namespace TheWeatherApp.Tests.Helpers
+﻿using HttpClientLibrary.HttpClientService;
+
+namespace TheWeatherApp.Tests.Helpers
 {
     [TestFixture]
     public class HttpClientTests
@@ -13,7 +15,7 @@
         [Test]
         public void TestSetup_TimeouWithValue_IsMinutesFalse()
         {
-            var test = new HttpClientHelper().SetupClient(1, false);
+            var test = new HttpClientHelper(new HttpClient()).SetupClient(1, false);
             Assert.IsNotNull(test);
             Assert.Equals(1, test.Timeout);
         }
