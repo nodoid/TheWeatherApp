@@ -64,6 +64,7 @@ namespace TheWeatherApp.Services
 
             return netLanguage;
 #endif
+            return string.Empty;
         }
     }
 }
