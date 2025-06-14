@@ -8,7 +8,7 @@ public static class Startup
 
     public static IServiceProvider Init()
     {
-        var provider = new ServiceCollection().ConfigureServices().BuildServiceProvider();
+        var provider = new ServiceCollection().ConfigureServices().ConfigureViewModels().BuildServiceProvider();
 
         ServiceProvider = provider;
 

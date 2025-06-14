@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui.Media;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
@@ -79,7 +78,7 @@ namespace TheWeatherApp.ViewModels
                         if (Weather.Alerts != null)
                         {
                             Alerts = Weather.Alerts;
-                            HasAlerts = true;
+                            HasAlerts = Alerts.Alert.Count > 0;
                         }
                         if (Weather.Forecast != null)
                             Forecast = Weather.Forecast;

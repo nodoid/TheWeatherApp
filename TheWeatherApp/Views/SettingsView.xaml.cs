@@ -6,4 +6,10 @@ public partial class SettingsView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		ViewModel.Init();
+	}
 }

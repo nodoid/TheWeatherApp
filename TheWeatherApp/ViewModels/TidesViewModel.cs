@@ -10,6 +10,7 @@ namespace TheWeatherApp.ViewModels
     public partial class TidesViewModel : BaseViewModel
     {
         IWebService? web => Startup.ServiceProvider.GetService<IWebService>();
+        
         IUserSettings? userSettings => Startup.ServiceProvider.GetService<IUserSettings>();
 
         [ObservableProperty]

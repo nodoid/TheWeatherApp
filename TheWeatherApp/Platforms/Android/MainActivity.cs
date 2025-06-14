@@ -1,7 +1,10 @@
-﻿using Android.App;
+﻿using System.Diagnostics;
+using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
+using Activity = Android.App.Activity;
 
 namespace TheWeatherApp
 {
@@ -19,6 +22,12 @@ namespace TheWeatherApp
 
             base.OnCreate(savedInstanceState);
             RequestedOrientation = ScreenOrientation.Portrait;
+        }
+        
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

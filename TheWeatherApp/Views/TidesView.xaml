@@ -12,31 +12,31 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Converters:WidthSizeConverter x:Key="Width" />
-            <Converters:HeightSizeConverter x:Key="Height" />
             <Converters:LanguageConverter x:Key="Languages" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <RefreshView IsRefreshing="{Binding IsRefreshing}" IsVisible="{Binding  IsRefreshing}" 
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshDataCommand}"
                  BackgroundColor="Fuchsia">
-        <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Start">
+        <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Fill">
             <ActivityIndicator IsRunning="{Binding IsRefreshing}" Color="Aquamarine" 
                                IsVisible="{Binding IsRefreshing}" />
-            <Label Text="{Binding Location.Name}" FontSize="Large" HorizontalOptions="Center" />
-            <Label Text="{Binding Location.Country}" FontSize="Medium" HorizontalOptions="Center" />
+            <Label Text="{Binding Locations.Name}" FontSize="Large" HorizontalOptions="Center" />
+            <Label Text="{Binding Locations.Country}" FontSize="Medium" HorizontalOptions="Center" />
             <HorizontalStackLayout HorizontalOptions="Center" 
                                    WidthRequest="{Binding Converter={StaticResource Width}, ConverterParameter=.6}">
                 <Grid ColumnDefinitions="50*,50*" ColumnSpacing="8">
                     <HorizontalStackLayout Grid.Column="0">
                         <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lat}"
                                FontSize="Small" />
-                        <Label Text="{Binding Location.Lat}" FontSize="Small" />
+                        <Label Text="{Binding Locations.Lat}" FontSize="Small" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Grid.Column="0">
                         <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lng}"
                                FontSize="Small" />
-                        <Label Text="{Binding Location.Lon}" FontSize="Small" />
+                        <Label Text="{Binding Locations.Lon}" FontSize="Small" />
                     </HorizontalStackLayout>
-                    <CollectionView ItemsSource="{Binding Forecasted.Forecastday}" HorizontalScrollBarVisibility="Always">
+                    <CollectionView ItemsSource="{Binding Forecasted.Forecastday}" HorizontalScrollBarVisibility="Always"
+                                    ItemsLayout="HorizontalList">
                         <CollectionView.EmptyViewTemplate>
                             <DataTemplate>
                                 <ContentView>
@@ -80,7 +80,7 @@
                                             <CollectionView ItemsSource="{Binding Day.Tides}">
                                                 <CollectionView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <ContentView Padding="0,8">
+                                                        <ContentView Padding="8,8">
                                                             <Grid ColumnDefinitions="30*,auto" RowDefinitions="auto,auto,auto" ColumnSpacing="8" RowSpacing="8">
                                                                 <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Tide_Time}" 
                                                                        Grid.Row="0" Grid.Column="0" />

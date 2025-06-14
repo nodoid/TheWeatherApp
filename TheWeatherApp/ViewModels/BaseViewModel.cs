@@ -28,16 +28,19 @@ namespace TheWeatherApp.ViewModels
             try
             {
                 // Check and request location permissions
-                var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-                if (status != PermissionStatus.Granted)
+                MainThread.BeginInvokeOnMainThread(async() =>
                 {
-                    var result = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-                    if (result != PermissionStatus.Granted)
+                    var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                    if (status != PermissionStatus.Granted)
                     {
-                        // Permission denied
-                        return null;
+                        var result = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                        if (result != PermissionStatus.Granted)
+                        {
+                            // Permission denied
+                            return;
+                        }
                     }
-                }
+                });
 
                 // Get the current location
                 var location = await Geolocation.GetLocationAsync(new GeolocationRequest

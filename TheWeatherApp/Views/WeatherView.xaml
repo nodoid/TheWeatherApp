@@ -39,7 +39,8 @@
                     </HorizontalStackLayout>
                 </Grid>
             </HorizontalStackLayout>
-            <CollectionView ItemsSource="{Binding Forecast.Forecastday}" HorizontalScrollBarVisibility="Always">
+            <CollectionView ItemsSource="{Binding Forecast.Forecastday}" HorizontalScrollBarVisibility="Always"
+                            ItemsLayout="HorizontalList">
                 <CollectionView.EmptyViewTemplate>
                     <DataTemplate>
                         <ContentView>
@@ -55,9 +56,10 @@
                     <DataTemplate>
                         <ContentView Padding="8,0">
                             <Border BackgroundColor="Wheat"
-                            WidthRequest="{Binding Converter={StaticResource Width},ConverterParameter=.2}" Padding="0,8"
-                            VerticalOptions="Start">
-                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                WidthRequest="{Binding Converter={StaticResource Width},ConverterParameter=.2}" 
+                                Padding="0,8"
+                                VerticalOptions="Fill">
+                                <VerticalStackLayout VerticalOptions="Fill" HorizontalOptions="Center">
                                     <HorizontalStackLayout HorizontalOptions="Center">
                                         <Grid ColumnDefinitions="65*,auto" RowDefinitions="auto,auto">
                                             <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
@@ -65,13 +67,13 @@
                                                 <Label Text="{Binding Day.Condition.Text}" FontSize="Medium"  HorizontalOptions="Center" />
                                             </VerticalStackLayout>
 
-                                            <Image Source="{Binding Day.Condition.Icon}" HeightRequest="64" WidthRequest="64" 
+                                            <Image Source="{Binding Day.Condition.IconUrl}" HeightRequest="64" WidthRequest="64" 
                                                HorizontalOptions="Center"  Grid.Column="1" Grid.Row="0" />
                                             <VerticalStackLayout HorizontalOptions="Center" Grid.Column="0" Grid.Row="1">
                                                 <HorizontalStackLayout Padding="4" HorizontalOptions="Center">
                                                     <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Temp_Min}"
                                                        FontSize="Small"  TextColor="LightBlue" />
-                                                    <Label Text="{Binding Day.MaxtempC}" FontSize="Small"  TextColor="LightBlue" />
+                                                    <Label Text="{Binding Day.MintempC}" FontSize="Small"  TextColor="LightBlue" />
                                                 </HorizontalStackLayout>
                                                 <HorizontalStackLayout Padding="4" HorizontalOptions="Center">
                                                     <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Temp_Max}"
@@ -81,7 +83,7 @@
                                             </VerticalStackLayout>
                                         </Grid>
                                     </HorizontalStackLayout>
-                                    <toolkit:Expander>
+                                    <toolkit:Expander Padding="0,8">
                                         <toolkit:Expander.Header>
                                             <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_Additional}"
                                             HorizontalOptions="Center"  FontAttributes="Bold" FontSize="14" />
@@ -114,7 +116,7 @@
                                             </Grid>
                                         </VerticalStackLayout>
                                     </toolkit:Expander>
-                                    <toolkit:Expander IsEnabled="{Binding Day.HasAirQuality}">
+                                    <toolkit:Expander IsEnabled="{Binding Day.HasAirQuality}" Padding="0.8">
                                         <toolkit:Expander.Header>
                                             <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Weather_Quality}"
                                                HorizontalOptions="Center"  FontAttributes="Bold" FontSize="14" />

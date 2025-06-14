@@ -2,7 +2,7 @@
 
 namespace TheWeatherApp.Tests.Models
 {
-    public class MockDay
+    public class Day
     {
         [JsonProperty("maxtemp_c")]
         public double? MaxtempC  { get; set; }

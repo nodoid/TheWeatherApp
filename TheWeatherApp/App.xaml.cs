@@ -20,7 +20,6 @@ namespace TheWeatherApp
 
             ScreenSize = new Size(DeviceDisplay.MainDisplayInfo.Width, DeviceDisplay.MainDisplayInfo.Height);
             InitializeComponent();
-            Startup.ServiceProvider.GetService<BaseViewModel>().FirstRun();
             
             var connect = (Connectivity.NetworkAccess == NetworkAccess.Internet) || (Connectivity.NetworkAccess == NetworkAccess.Local);
 
@@ -49,6 +48,8 @@ namespace TheWeatherApp
                 var netLanguage = Service.GetService<ILocalize>().GetCurrent();
                 Languages.Resources.Culture = new CultureInfo(netLanguage);
                 Service.GetService<ILocalize>().SetLocale();
+                
+                Startup.ServiceProvider.GetService<BaseViewModel>().FirstRun();
             }
         }
     }

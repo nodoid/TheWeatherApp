@@ -39,9 +39,9 @@ namespace TheWeatherApp.Services
 
         string FormQuery(string api, List<string> pars)
         {
-            var touse = $"{Constants.Constants.BaseUrl}/{api}.json&key={Constants.Constants.APIKey}&";
+            var touse = $"{Constants.Constants.BaseUrl}/{api}.json?key={Constants.Constants.APIKey}&";
             foreach (var par in pars)
-                touse += par;
+                touse += $"&{par}";
             return touse;
         }
 

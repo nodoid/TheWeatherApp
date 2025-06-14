@@ -6,10 +6,10 @@ namespace TheWeatherApp.Models
     public class TideRoot
     {
         [JsonProperty("location")]
-        public LocationModel Location  { get; set; }
+        public LocationModel? Location  { get; set; }
 
         [JsonProperty("forecast")]
-        public Forecast Forecast { get; set; }
+        public Forecast? Forecast { get; set; }
     }
 
     public class Tide2

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -29,9 +29,6 @@
   <ItemGroup>
     <Compile Include="..\..\..\Downloads\WeatherServiceTest.cs">
       <Link>Services\WeatherServiceTest.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Downloads\WeatherViewModelTests.cs">
-      <Link>Viewmodels\WeatherViewModelTests.cs</Link>
     </Compile>
   </ItemGroup>
 

@@ -22,12 +22,18 @@
             HorizontalOptions="Center" />
         <VerticalStackLayout Padding="0,16">
             <Grid ColumnDefinitions="45*,auto" RowDefinitions="auto,auto,auto" RowSpacing="8" ColumnSpacing="8">
-                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="0" />
-                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="1" />
-                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" Grid.Column="0" Grid.Row="2" />
-                <Stepper Maximum="14" Minimum="1" Value="{Binding NumDays}" Grid.Column="1" Grid.Row="0" />
-                <Switch IsToggled="{Binding Air}" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"/>
-                <Switch IsToggled="{Binding Alerts}" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"/>
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_NumDays}" 
+                       VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Air}" 
+                       VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1" />
+                <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Alerts}" 
+                       VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="2" />
+                <HorizontalStackLayout  Grid.Column="1" Grid.Row="0">
+                    <Label Text="{Binding NumDays}" VerticalTextAlignment="Center" />
+                    <Stepper Maximum="14" Minimum="1" Value="{Binding NumDays}"  />
+                </HorizontalStackLayout>
+                <Switch IsToggled="{Binding Air}" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Switch IsToggled="{Binding Alerts}" Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start"/>
             </Grid>
             <Button VerticalOptions="End" HorizontalOptions="Center"
                     Text="{Binding Converter={StaticResource Languages},ConverterParameter=Settings_Save}"

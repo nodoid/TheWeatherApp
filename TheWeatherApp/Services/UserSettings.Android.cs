@@ -1,6 +1,5 @@
 ﻿#if ANDROID
 using Android.Content;
-using TheWeatherApp;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
@@ -10,7 +9,7 @@ namespace TheWeatherApp.Services
 	{
 		public void SaveSetting<T>(string name, T value, SettingType type)
 		{
-			var editor = MainActivity.Prefs.Edit();
+			var editor = MainActivity.Prefs?.Edit();
 			editor.Remove(name);
 			editor.Commit();
 			switch ((int)type)
@@ -37,7 +36,7 @@ namespace TheWeatherApp.Services
 
 		public void SaveSetting(string name, List<string> values)
 		{
-            var editor = MainActivity.Prefs.Edit();
+            var editor = MainActivity.Prefs?.Edit();
 			editor.Remove(name);
 			editor.Commit();
 			editor.PutStringSet(name, values);
@@ -51,19 +50,19 @@ namespace TheWeatherApp.Services
 			switch ((int)type)
 			{
 				case 0:
-					nv = MainActivity.Prefs.GetBoolean(name, false);
+					nv = MainActivity.Prefs?.GetBoolean(name, false);
 					break;
 				case 1:
-					nv = MainActivity.Prefs.GetFloat(name, 0);
+					nv = MainActivity.Prefs?.GetFloat(name, 0);
 					break;
 				case 2:
-					nv = MainActivity.Prefs.GetInt(name, 0);
+					nv = MainActivity.Prefs?.GetInt(name, 0);
 					break;
 				case 3:
-					nv = MainActivity.Prefs.GetLong(name, 0);
+					nv = MainActivity.Prefs?.GetLong(name, 0);
 					break;
 				case 4:
-					nv = MainActivity.Prefs.GetString(name, "");
+					nv = MainActivity.Prefs?.GetString(name, "");
 					break;
 			}
 
@@ -72,7 +71,7 @@ namespace TheWeatherApp.Services
 
 		public List<string> LoadSetting(string name)
 		{
-            var strList = MainActivity.Prefs.GetStringSet(name, null);
+            var strList = MainActivity.Prefs?.GetStringSet(name, null);
 			var list = new List<string>();
 			if (strList == null)
 				return list;
@@ -91,7 +90,7 @@ namespace TheWeatherApp.Services
 
 		public void RemoveSetting(string name)
 		{
-            var editor = MainActivity.Prefs.Edit();
+            var editor = MainActivity.Prefs?.Edit();
 			editor.Remove(name);
 			editor.Commit();
 		}

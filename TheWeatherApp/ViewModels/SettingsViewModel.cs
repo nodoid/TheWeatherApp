@@ -20,7 +20,7 @@ namespace TheWeatherApp.ViewModels
         {
             userSettings.SaveSetting("days", value:NumDays, SettingType.Int);
             userSettings.SaveSetting("alerts", Alerts, SettingType.Bool);
-            userSettings.SaveSetting("alerts", Air, SettingType.Bool);
+            userSettings.SaveSetting("air", Air, SettingType.Bool);
         }
 
         public void Init()
