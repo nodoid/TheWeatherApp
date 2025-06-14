@@ -3,7 +3,7 @@ using TheWeatherApp.Interfaces;
 
 namespace TheWeatherApp.Services;
 
-#if NET9_0
+#if NET9_0 && !IOS && !ANDROID
 public class UserSettings : IUserSettings
 {
     public void SetPrefName(string name)
