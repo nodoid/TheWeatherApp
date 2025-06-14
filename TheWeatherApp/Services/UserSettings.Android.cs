@@ -4,7 +4,7 @@ using TheWeatherApp;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
-namespace TheWeatherApp.PlatformServices
+namespace TheWeatherApp.Services
 {
 	public class UserSettings : Java.Lang.Object, IUserSettings
 	{

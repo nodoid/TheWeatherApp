@@ -4,7 +4,7 @@ using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 using Newtonsoft.Json;
 
-namespace TheWeatherApp.PlatformServices
+namespace TheWeatherApp.Services
 {
     public class UserSettings : IUserSettings
     {
