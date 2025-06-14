@@ -4,7 +4,7 @@ using System.Globalization;
 using Foundation;
 #endif
 
-namespace FTrack4.PlatformServices
+namespace TheWeatherApp.Services
 {
     public class Localize : ILocalize
     {
@@ -16,7 +16,7 @@ namespace FTrack4.PlatformServices
             var ci = new CultureInfo(netLocale);
             Thread.CurrentThread.CurrentCulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;
-#else
+#elif IOS
             var ci = new CultureInfo(GetCurrent());
             Thread.CurrentThread.CurrentCulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;
@@ -35,7 +35,7 @@ namespace FTrack4.PlatformServices
             Thread.CurrentThread.CurrentUICulture = ci;
 
             return netLocale;
-#else
+#elif IOS
             var iosLocaleAuto = NSLocale.AutoUpdatingCurrentLocale.LocaleIdentifier;  
             var iosLanguageAuto = NSLocale.AutoUpdatingCurrentLocale.LanguageCode;
             var netLocale = iosLocaleAuto.Replace("_", "-");
