@@ -252,5 +252,7 @@
   <data name="Tide_Type" xml:space="preserve">
     <value>Type</value>
   </data>
-
+  <data name="Misc_LoadingData" xml:space="preserve">
+    <value>Grabbing data from the service</value>
+  </data>
 </root>

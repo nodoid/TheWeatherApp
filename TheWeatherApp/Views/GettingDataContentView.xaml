@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Converters="clr-namespace:TheWeatherApp.Converters"
+             x:Class="TheWeatherApp.Views.GettingDataContentView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Converters:WidthSizeConverter x:Key="Width" />
+            <Converters:HeightSizeConverter x:Key="Height" />
+            <Converters:LanguageConverter x:Key="Languages" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout BackgroundColor="Transparent" Opacity=".25" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Border BackgroundColor="AliceBlue" 
+                    WidthRequest="250"
+                    HeightRequest="400"
+                    HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid RowDefinitions="auto,*" RowSpacing="8">
+                    <ActivityIndicator HorizontalOptions="Center" IsRunning="true" Grid.Row="0" VerticalOptions="Center"/>
+                    <Label Text="{Binding Converter={StaticResource Languages},ConverterParameter=Misc_LoadingData}"
+                           TextColor="Blue" HorizontalOptions="Center" Grid.Row="1" VerticalOptions="Center"
+                           FontSize="Large" HorizontalTextAlignment="Center" />
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+          </StackLayout>  
+    </ContentView.Content>
+</ContentView>

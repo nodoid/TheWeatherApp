@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using TheWeatherApp.Enums;
 using TheWeatherApp.Interfaces;
 
@@ -10,7 +11,7 @@ namespace TheWeatherApp.ViewModels
 
         [ObservableProperty]
         static bool isConnected;
-
+        
         public void FirstRun()
         {
             if (!userSettings.LoadSetting<bool>("firstRun", SettingType.Bool))

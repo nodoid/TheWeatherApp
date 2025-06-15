@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Converters="clr-namespace:TheWeatherApp.Converters" 
+             xmlns:controls="clr-namespace:TheWeatherApp.Views"
             xmlns:vm="clr-namespace:TheWeatherApp.ViewModels;assembly=TheWeatherApp"
             IconImageSource="tides.png"
              x:Class="TheWeatherApp.Views.TidesView"
@@ -13,13 +14,14 @@
         <ResourceDictionary>
             <Converters:WidthSizeConverter x:Key="Width" />
             <Converters:LanguageConverter x:Key="Languages" />
+            <Converters:NegateBooleanConverter x:Key="Negate" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshDataCommand}"
                  BackgroundColor="Fuchsia">
         <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Fill">
-            <ActivityIndicator IsRunning="{Binding IsRefreshing}" Color="Aquamarine" 
-                               IsVisible="{Binding IsRefreshing}" />
+            <controls:GettingDataContentView IsVisible="{Binding IsRefreshing}" VerticalOptions="Center"/>
+            <StackLayout x:Name="stack" IsVisible="{Binding IsRefreshing, Converter={StaticResource Negate}}">
             <Label Text="{Binding Locations.Name}" FontSize="Large" HorizontalOptions="Center" />
             <Label Text="{Binding Locations.Country}" FontSize="Medium" HorizontalOptions="Center" />
             <HorizontalStackLayout HorizontalOptions="Center" 
@@ -104,6 +106,7 @@
                     </CollectionView>
                 </Grid>
             </HorizontalStackLayout>
+            </StackLayout>
         </VerticalStackLayout>
     </RefreshView>
 </ContentPage>

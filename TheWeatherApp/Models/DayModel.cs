@@ -48,7 +48,7 @@ namespace TheWeatherApp.Models
         public double? Avghumidity { get; set; }
 
         [JsonProperty("tides")]
-        public ObservableCollection<Tide2>? Tides { get; set; }
+        public ObservableCollection<TideRoot>? Tides { get; set; }
 
         public bool HasTides { get => Tides != null; }
 

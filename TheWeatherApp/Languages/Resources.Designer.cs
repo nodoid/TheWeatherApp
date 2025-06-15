@@ -314,5 +314,11 @@ namespace TheWeatherApp.Languages {
                 return ResourceManager.GetString("Tide_Type", resourceCulture);
             }
         }
+        
+        internal static string Misc_LoadingData {
+            get {
+                return ResourceManager.GetString("Misc_LoadingData", resourceCulture);
+            }
+        }
     }
 }

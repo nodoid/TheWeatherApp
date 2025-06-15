@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
+using CommunityToolkit.Mvvm.Messaging;
 using TheWeatherApp.Interfaces;
+using TheWeatherApp.Models;
 using TheWeatherApp.ViewModels;
 
 namespace TheWeatherApp
@@ -50,6 +52,7 @@ namespace TheWeatherApp
                 Service.GetService<ILocalize>().SetLocale();
                 
                 Startup.ServiceProvider.GetService<BaseViewModel>().FirstRun();
+                WeakReferenceMessenger.Default.Send(new BooleanMessage { BoolValue = true, Message = "InitData" });
             }
         }
     }
