@@ -47,7 +47,7 @@ namespace TheWeatherApp.ViewModels
                 var location = await Geolocation.GetLocationAsync(new GeolocationRequest
                 {
                     DesiredAccuracy = GeolocationAccuracy.Medium,
-                    Timeout = TimeSpan.FromSeconds(10)
+                    Timeout = TimeSpan.FromSeconds(2)
                 });
 
                 if (location != null)
@@ -57,8 +57,9 @@ namespace TheWeatherApp.ViewModels
                 }
                 else
                 {
+                    location = await Geolocation.GetLastKnownLocationAsync();
                     // Location data not available
-                    return null;
+                    return location;
                 }
             }
             catch (Exception ex)

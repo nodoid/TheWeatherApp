@@ -12,7 +12,7 @@ public partial class TidesView : ContentPage
 	protected override void OnAppearing()
 	{
 		base.OnAppearing();
-		Task.Run(ViewModel.Init);
+		ViewModel.Init().ConfigureAwait(true);
 		ViewModel.PropertyChanged += OnPropertyChanged;
 	}
 

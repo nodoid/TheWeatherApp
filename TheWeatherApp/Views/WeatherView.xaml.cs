@@ -12,7 +12,7 @@ public partial class WeatherView : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        Task.Run(ViewModel.Init);
+        ViewModel.Init().ConfigureAwait(false);
         ViewModel.PropertyChanged+= OnPropertyChanged;
     }
 

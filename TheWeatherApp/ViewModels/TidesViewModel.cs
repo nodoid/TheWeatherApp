@@ -38,6 +38,7 @@ namespace TheWeatherApp.ViewModels
             await Init();
         }
 
+        bool isInRefresh;
         public TidesViewModel()
         {
             messenger.Register<BooleanMessage>(this, (n, t) =>
@@ -51,48 +52,56 @@ namespace TheWeatherApp.ViewModels
         
         public async Task Init()
         {
-            var currentLoc = await GetCurrentLocation();
-            if (currentLoc != null)
+            if (!isInRefresh)
             {
-                NumDays = userSettings.LoadSetting<int>("days", SettingType.Int);
-
-                var dt = DateTime.Parse(userSettings.LoadSetting<string>("used", SettingType.String));
-                if (DateTime.Now.Subtract(dt).TotalMinutes >= 15 || DateTime.Now.Subtract(dt).TotalMinutes <= 1)
+                isInRefresh = true;
+                var currentLoc = await GetCurrentLocation();
+                if (currentLoc != null)
                 {
-                    if (IsConnected)
+                    NumDays = userSettings.LoadSetting<int>("days", SettingType.Int);
+
+                    var dt = DateTime.Parse(userSettings.LoadSetting<string>("used", SettingType.String));
+                    var calc = DateTime.Now.Subtract(dt).TotalMinutes;
+                    if (calc >= 15 || calc <= 1 || Forecasted == null)
                     {
-                        IsRefreshing = true;
-                        Tide = await web.GetTides(currentLoc.Latitude, currentLoc.Longitude, NumDays);
-                        if (Tide != null)
+                        if (IsConnected)
                         {
-                            userSettings.SaveSetting("used", DateTime.Now.ToString(), SettingType.String);
-                            if (Tide.Location != null)
-                                Locations = Tide.Location;
-                            if (Tide.Forecast != null)
-                                Forecasted = Tide.Forecast;
-                            IsRefreshing = false;
-                            RefreshScreen = true;
+                            IsRefreshing = true;
+                            Tide = await web.GetTides(currentLoc.Latitude, currentLoc.Longitude, NumDays);
+                            if (Tide != null)
+                            {
+                                userSettings.SaveSetting("used", DateTime.Now.ToString(), SettingType.String);
+                                if (Tide.Location != null)
+                                    Locations = Tide.Location;
+                                if (Tide.Forecast != null)
+                                    Forecasted = Tide.Forecast;
+                                IsRefreshing = false;
+                                RefreshScreen = true;
+                            }
+                            else
+                            {
+                                IsRefreshing = false;
+                                await Mopups.Services.MopupService.Instance.PushAsync(
+                                    new ErrorMessagePopupPage(Languages.Resources.Error_Tides_Title,
+                                        Languages.Resources.Error_Tides_NoData), true);
+                            }
                         }
                         else
                         {
-                            IsRefreshing = false;
                             await Mopups.Services.MopupService.Instance.PushAsync(
-                                new ErrorMessagePopupPage(Languages.Resources.Error_Tides_Title,
-                                    Languages.Resources.Error_Tides_NoData), true);
+                                new ErrorMessagePopupPage(Languages.Resources.Error_ConnectTitle,
+                                    Languages.Resources.Error_ConnectMessage), true);
                         }
                     }
-                    else
-                    {
-                        await Mopups.Services.MopupService.Instance.PushAsync(
-                            new ErrorMessagePopupPage(Languages.Resources.Error_ConnectTitle,
-                                Languages.Resources.Error_ConnectMessage), true);
-                    }
                 }
-            }
-            else
-                await Mopups.Services.MopupService.Instance.PushAsync(new ErrorMessagePopupPage(Languages.Resources.Error_LocationTitle, Languages.Resources.Error_LocationNull), true);
+                else
+                    await Mopups.Services.MopupService.Instance.PushAsync(
+                        new ErrorMessagePopupPage(Languages.Resources.Error_LocationTitle,
+                            Languages.Resources.Error_LocationNull), true);
 
-            RefreshScreen = false;
+                RefreshScreen = false;
+                isInRefresh = false;
+            }
         }
     }
 }

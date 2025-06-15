@@ -21,7 +21,7 @@
                  BackgroundColor="Fuchsia">
         <VerticalStackLayout Padding="8" HorizontalOptions="Fill" VerticalOptions="Fill">
             <controls:GettingDataContentView IsVisible="{Binding IsRefreshing}" VerticalOptions="Center"/>
-            <StackLayout x:Name="stack" IsVisible="{Binding IsRefreshing, Converter={StaticResource Negate}}">
+            <StackLayout IsVisible="{Binding IsRefreshing, Converter={StaticResource Negate}}">
             <Label Text="{Binding Locations.Name}" FontSize="Large" HorizontalOptions="Center" />
             <Label Text="{Binding Locations.Country}" FontSize="Medium" HorizontalOptions="Center" />
             <HorizontalStackLayout HorizontalOptions="Center" 
@@ -32,13 +32,13 @@
                                FontSize="Small" />
                         <Label Text="{Binding Locations.Lat}" FontSize="Small" />
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Grid.Column="0">
+                    <HorizontalStackLayout Grid.Column="1">
                         <Label Text="{Binding Converter={StaticResource Languages}, ConverterParameter=Pos_Lng}"
                                FontSize="Small" />
                         <Label Text="{Binding Locations.Lon}" FontSize="Small" />
                     </HorizontalStackLayout>
                     <CollectionView ItemsSource="{Binding Forecasted.Forecastday}" HorizontalScrollBarVisibility="Always"
-                                    ItemsLayout="HorizontalList">
+                                    ItemsLayout="HorizontalList" x:Name="stack">
                         <CollectionView.EmptyViewTemplate>
                             <DataTemplate>
                                 <ContentView>
@@ -63,7 +63,7 @@
                                                         <Label Text="{Binding Date}" FontSize="Large" TextColor="Blue" HorizontalOptions="Center" />
                                                         <Label Text="{Binding Day.Condition.Text}" FontSize="Medium"  HorizontalOptions="Center" />
                                                     </VerticalStackLayout>
-                                                    <Image Source="{Binding Day.Condition.Icon}" HeightRequest="64" WidthRequest="64" 
+                                                    <Image Source="{Binding Day.Condition.IconUrl}" HeightRequest="64" WidthRequest="64" 
                                                         HorizontalOptions="Center"  Grid.Column="1" Grid.Row="0" />
                                                     <VerticalStackLayout HorizontalOptions="Center" Grid.Column="0" Grid.Row="1">
                                                         <HorizontalStackLayout Padding="4" HorizontalOptions="Center">
@@ -79,7 +79,7 @@
                                                     </VerticalStackLayout>
                                                 </Grid>
                                             </HorizontalStackLayout>
-                                            <CollectionView ItemsSource="{Binding Day.Tides}">
+                                            <CollectionView ItemsSource="{Binding Day.FullTides}">
                                                 <CollectionView.ItemTemplate>
                                                     <DataTemplate>
                                                         <ContentView Padding="8,8">
