@@ -27,12 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\Downloads\WeatherServiceTest.cs">
-      <Link>Services\WeatherServiceTest.cs</Link>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TheWeatherApp\TheWeatherApp.csproj" />
   </ItemGroup>
 
