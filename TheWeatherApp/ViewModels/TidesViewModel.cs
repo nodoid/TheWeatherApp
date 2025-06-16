@@ -18,7 +18,7 @@ namespace TheWeatherApp.ViewModels
         int numDays;
 
         [ObservableProperty]
-        TideRoot tide;
+        static TideRoot tide;
 
         [ObservableProperty]
         Forecast? forecasted;

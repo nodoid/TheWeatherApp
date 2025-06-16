@@ -14,7 +14,7 @@ namespace TheWeatherApp.ViewModels
         IMessenger? messenger => Startup.ServiceProvider.GetService<IMessenger>();
         IWebService? web => Startup.ServiceProvider.GetService<IWebService>();
 
-        [ObservableProperty] WeatherForecast weather;
+        [ObservableProperty] static WeatherForecast weather;
 
         [ObservableProperty] int numDays;
 
