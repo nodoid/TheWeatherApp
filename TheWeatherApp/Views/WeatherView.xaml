@@ -42,7 +42,7 @@
             </HorizontalStackLayout>
             <CollectionView ItemsSource="{Binding Forecast.Forecastday}" HorizontalScrollBarVisibility="Always"
                             ItemsLayout="HorizontalList" VerticalOptions="Fill"  x:Name="stack"
-                            HeightRequest="400" >
+                            MinimumHeightRequest="400" >
                 <CollectionView.EmptyViewTemplate>
                     <DataTemplate>
                         <ContentView>
